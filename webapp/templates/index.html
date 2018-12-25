@@ -3,7 +3,7 @@
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
@@ -12,39 +12,137 @@
   </head>
   <body>
     <form>
+      <div><h1><center><br>Access The Archive</br></center></h1></div>
     <div class="form-row align-items-center">
     <div class="col-auto my-1">
       <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Preference</label>
-      <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-        <option selected>Choose...</option>
-        <option value="1">Week One</option>
-        <option value="2">Week Two</option>
-        <option value="3">Week Three</option>
-        <option value="1">4</option>
-        <option value="2">5</option>
-        <option value="3">6</option>
+      <select class="custom-select mr-sm-2" id="day">
+        <option selected>Day</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+        <option value="13">13</option>
+        <option value="14">14</option>
+        <option value="15">15</option>
+        <option value="16">16</option>
+        <option value="17">17</option>
+        <option value="18">18</option>
+        <option value="19">19</option>
+        <option value="20">20</option>
+        <option value="21">21</option>
+        <option value="22">22</option>
+        <option value="23">23</option>
+        <option value="24">24</option>
+        <option value="25">25</option>
+        <option value="26">26</option>
+        <option value="27">27</option>
+        <option value="28">28</option>
+        <option value="29">29</option>
+        <option value="30">30</option>
+        <option value="31">31</option>
       </select>
-        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect2">
-        <option selected>Choose...</option>
-        <option value="1"> One</option>
-        <option value="2">Week Two</option>
-        <option value="3">Week Three</option>
-        <option value="1">4</option>
-        <option value="2">5</option>
-        <option value="3">6</option>
+    </div>
+        <div class="col-auto my-1">
+        <select class="custom-select mr-sm-2" id="month">
+        <option selected>Month</option>
+        <option value="01">January</option>
+        <option value="02">February</option>
+        <option value="03">March</option>
+        <option value="04">April</option>
+        <option value="05">May</option>
+        <option value="06">June</option>
+        <option value="07">July</option>
+        <option value="08">August</option>
+        <option value="09">September</option>
+        <option value="10">October</option>
+        <option value="11">November</option>
+        <option value="12">December</option>
+      </select>
+    </div>
+      <div class="col-auto my-1">
+      <select class="custom-select mr-sm-2" id="year">
+        <option selected>Year</option>
+        <option value="1">2018</option>
+        <option value="2">2017</option>
+        <option value="3">2016</option>
+        <option value="4">2015</option>
+        <option value="5">2014</option>
+        <option value="6">2013</option>
+        <option value="7">2012</option>
+        <option value="8">2011</option>
+        <option value="9">2010</option>
+      </select>
+    </div>
+      <div class="col-auto my-1">
+      <select class="custom-select mr-sm-2" id="select-charts">
+        <option selected>Charts</option>
+        <option value="1">Billboard</option>
+        <option value="2">UK chart</option>
+        <option value="3">Both</option>
       </select>
     </div>
     <div class="col-auto my-1">
-      <div class="custom-control custom-checkbox mr-sm-2">
-        <input type="checkbox" class="custom-control-input" id="customControlAutosizing">
-        <label class="custom-control-label" for="customControlAutosizing">Remember my preference</label>
-      </div>
+      <button type="search" class="btn btn-primary">Search</button>
     </div>
-    <div class="col-auto my-1">
-      <button type="submit" class="btn btn-primary">Search</button>
+      <div class="col-auto my-1">
+      <button type="login" class="btn btn-primary">Login</button>
     </div>
     </div>
     </form>
+    <br>
+    <br>
+    <br>
+    <div class="container">
+    <h1><center>Billboard current top list</center></h1>
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Rank</th>
+      <th scope="col">Title</th>
+      <th scope="col">Artist</th>
+      <th scope="col">Youtube</th>
+      <th scope="col">Spotify</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        {% current = sorted(us_chart.items())[-1] %}
+        {% for key,value in us_chart.items() %}
+            {% if key == current[0] %}
+                {% for song in value %}
+                    <th scope="row">{{song["rank"]}}</th>
+                    <td>{{song["title"]}}</td>
+                    <td>{{song["artist"]}}</td>
+                    <td><a href="youtube">link_youtube</a></td>
+                    <td><a href="spotify">link_spotify</a></td>
+                {% endfor %}
+            {% endif %}
+        {% endfor %}
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Larry</td>
+      <td>the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
+</table>
+        </div>
 
 
     <!-- Optional JavaScript -->
@@ -54,3 +152,4 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
   </body>
 </html>
+
