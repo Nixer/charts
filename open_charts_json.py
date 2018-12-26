@@ -1,16 +1,19 @@
 import json
+import os
+
+_location_ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
 
 
-def open_chart_us():
+def open_chart(country):
     """Opens chart json file"""
-    with open('billboard_sample.json') as f:
-        us_chart = json.loads(f.read())
-        return us_chart
+    with open(f'{_location_}/{country}') as f:
+        chart = json.loads(f.read())
+        return chart
 
 
 if __name__ == "__main__":
 
-    us_chart = open_chart_us()
+    us_chart = open_chart()
 
     current = sorted(us_chart.items())[-1]
     for key,value in us_chart.items():

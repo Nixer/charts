@@ -113,9 +113,8 @@
         </tr>
         </thead>
         <tbody>
-            {% current = sorted(us_chart.items())[-1] %}
             {% for key,value in us_chart.items() %}
-                {% if key == current[0] %}
+                {% if key == current_top_us[0] %}
                     {% for song in value %}
                         <tr>
                             <th scope="row">{{song["rank"]}}</th>
@@ -129,6 +128,38 @@
             {% endfor %}
         </tbody>
     </table>
+        <br>
+        <br>
+        <br>
+    <div class="container">
+    <h1><center>UK Charts current top list</center></h1>
+    <table class="table table-dark">
+        <thead>
+        <tr>
+          <th scope="col">Rank</th>
+          <th scope="col">Title</th>
+          <th scope="col">Artist</th>
+          <th scope="col">Youtube</th>
+          <th scope="col">Spotify</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for key,value in us_chart.items() %}
+                {% if key == current_top_uk[0] %}
+                    {% for song in value %}
+                        <tr>
+                            <th scope="row">{{song["rank"]}}</th>
+                            <td>{{song["title"]}}</td>
+                            <td>{{song["artist"]}}</td>
+                            <td><a href="youtube">link_youtube</a></td>
+                            <td><a href="spotify">link_spotify</a></td>
+                        </tr>
+                    {% endfor %}
+                {% endif %}
+            {% endfor %}
+        </tbody>
+    </table>
+    </div>
 </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
