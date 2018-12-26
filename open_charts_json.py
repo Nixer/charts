@@ -3,7 +3,7 @@ import json
 
 def open_chart_us():
     """Opens chart json file"""
-    with open('bob.json') as f:
+    with open('billboard_sample.json') as f:
         us_chart = json.loads(f.read())
         return us_chart
 
