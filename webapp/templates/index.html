@@ -11,11 +11,11 @@
 <title>Charts</title>
 </head>
 <body>
-<form>
+<form action="{{ url_for('index') }}" method='POST'>
 <div><h1><center><br>Access The Archive</br></center></h1></div>
   <div class="form-row align-items-center">
     <div class="col-auto my-1">
-      <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+        <select class="custom-select mr-sm-2" id="day" name="day">
           <option value="{{days[0]}}" selected>{{days[0]}}</option>
           {% for day in days[1:] %}
             <option value="{{day}}">{{day}}</option>
@@ -23,7 +23,7 @@
         </select>
         </div>
         <div class="col-auto my-1">
-        <select class="custom-select mr-sm-2" id="month">
+        <select class="custom-select mr-sm-2" id="month" name="month">
         <option selected>Month</option>
         <option value="01">January</option>
         <option value="02">February</option>
@@ -40,7 +40,7 @@
             </select>
             </div>
         <div class="col-auto my-1">
-        <select class="custom-select mr-sm-2" id="year">
+        <select class="custom-select mr-sm-2" id="year" name="year">
           <option value="{{years[0]}}" selected>{{years[0]}}</option>
           {% for year in years[1:] %}
             <option value="{{year}}">{{year}}</option>
@@ -48,25 +48,26 @@
         </select>
         </div>
         <div class="col-auto my-1">
-        <select class="custom-select mr-sm-2" id="select-charts">
-        <option selected>Charts</option>
-        <option value="1">Billboard</option>
-        <option value="2">UK chart</option>
-        <option value="3">Both</option>
+            <select class="custom-select mr-sm-2" id="charts" name="charts">
+            <option selected>Charts</option>
+            <option value="Billboard">Billboard</option>
+            <option value="UK chart">UK chart</option>
+            <option value="Both">Both</option>
             </select>
-            </div>
+        </div>
         <div class="col-auto my-1">
         <button type="search" class="btn btn-primary">Search</button>
         </div>
         <div class="col-auto my-1">
-            <button type="login" class="btn btn-primary">Login</button>
-            </div>
+            <a href="{{ url_for('login') }}" class="btn btn-primary">Login</a>
+         <!--<button type="login" class="btn btn-primary">Login</button>-->
+        </div>
           <!--<form action="{{ url_for('login') }}" method="POST">-->
         <!--<input type="submit" class="btn btn-primary" value="Login" />-->
             <!--</form>-->
         <!--</div>-->
 </div>
-    </form>
+</form>
     <br>
     <br>
     <br>

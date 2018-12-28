@@ -1,9 +1,11 @@
 __pycache__/
 .idea/
 env/
-*.json
-config.py
 *.log
+*.db
+*.db-journal
+*.json
 .DS_Store
+config.py
 chernovik.py
 html_chernovik.html
