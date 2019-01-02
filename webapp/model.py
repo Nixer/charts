@@ -34,24 +34,24 @@ class Track(db.Model):
     track_uk_charts = db.relationship('UkChart', backref='user', lazy=True)
 
     def __repr__(self):
-        return f"<US track: {self.id} '{self.title}' - {self.artist}>"
+        return f"<{self.id} '{self.title}' - {self.artist}>"
 
 
 class UsChart(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     track_id = db.Column(db.Integer, db.ForeignKey('track.id'), nullable=False)
-    date = db.Column(db.DateTime, nullable=False)
+    date = db.Column(db.Text, nullable=False)
     rank = db.Column(db.Integer, nullable=False)
 
-    def __repr__(self):
-        return f"<US track in Chart: {self.id} {self.date} {self.rank}>"
+    # def __repr__(self):
+    #     return f"<{self.id} {self.date} {self.rank}>"
 
 
 class UkChart(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     track_id = db.Column(db.Integer, db.ForeignKey('track.id'), nullable=False)
-    date = db.Column(db.DateTime, nullable=False)
+    date = db.Column(db.Text, nullable=False)
     rank = db.Column(db.Integer, nullable=False)
 
     def __repr__(self):
-        return f"<UK track in Chart: {self.id} {self.date} {self.rank}>"
+        return f"<{self.id} {self.date} {self.rank}>"
