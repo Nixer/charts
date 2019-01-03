@@ -16,12 +16,12 @@ import datetime
 import calendar
 
 
-def last_friday(day):
+def last_sunday(day):
     # day = input("Input date (Y-m-d):")
-    friday = datetime.datetime.strptime(day, "%Y-%m-%d")
+    sunday = datetime.datetime.strptime(day, "%Y-%m-%d")
     one_day = datetime.timedelta(days=1)
 
-    while friday.weekday() != calendar.SUNDAY:
-        friday -= one_day
+    while sunday.weekday() != calendar.SUNDAY:
+        sunday -= one_day
 
-    return friday.strftime("%Y-%m-%d")
+    return sunday.strftime("%Y-%m-%d")

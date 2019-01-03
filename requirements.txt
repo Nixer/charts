@@ -1,0 +1,16 @@
+beautifulsoup4==4.6.0
+billboard.py==5.0.0
+click==6.7
+itsdangerous==1.1.0
+Flask==1.0.2
+Flask-SQLAlchemy==2.3.2
+Flask-WTF==0.14.2
+Jinja2==2.10
+MarkupSafe==1.1.0
+pandas==0.23.4
+PyLyrics==1.1.0
+requests==2.18.4
+rumps==0.2.2
+schedule==0.5.0
+SQLAlchemy==1.2.15
+Werkzeug==0.14.1
