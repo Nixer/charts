@@ -1,11 +1,8 @@
 from flask import Flask, render_template, request
-from utils.open_charts_json import open_chart
-import datetime
-from dateutil import relativedelta
 from utils.db_queries import get_records
-# from webapp.forms import DateForm
 from webapp.model import *
 from utils.last_sunday import last_sunday
+
 
 def create_app():
     app = Flask(__name__)
@@ -39,4 +36,3 @@ def create_app():
         return render_template("signup.html")
 
     return app
-
