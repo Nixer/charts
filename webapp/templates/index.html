@@ -1,26 +1,6 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <title>Charts Archive</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body>
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="/">Charts</a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="/">Home</a></li>
-      <li><a href="{{ url_for('login') }}">Login</a></li>
-      <li><a href="#">Register</a></li>
-    </ul>
-  </div>
-</nav>
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+{% block content %}
 <form action="{{ url_for('index') }}" method='POST'>
 <h1><center><br>Access The Archive</br></center></h1>
         <div class="row">
@@ -79,7 +59,7 @@
     <br>
     <br>
     <div class="container-fluid">
-    <h1><center>Top 100 Billboard US chart on {{date}}</center></h1>
+    <h2><center>Top 100 Billboard US singles chart<br>on {{date}}</center></h2>
     <table class="table table-dark">
         <thead>
         <tr>
@@ -95,7 +75,7 @@
             <tr>
                 <th scope="row">{{song["rank"]}}</th>
                 <td>{{song["title"]}}</td>
-                <td>{{song["artist"]}}</td>
+                <td><i>{{song["artist"]}}</i></td>
                 <td><a href="youtube">link_youtube</a></td>
                 <td><a href="spotify">link_spotify</a></td>
             </tr>
@@ -107,7 +87,7 @@
         <br>
         <br>
     <div class="container-fluid">
-    <h1><center>Top 100 Official UK chart on {{date}}</center></h1>
+    <h2><center>Top 100 Official UK singles chart<br>on {{date}}</center></h2>
     <table class="table table-dark">
         <thead>
         <tr>
@@ -123,7 +103,7 @@
             <tr>
                 <th scope="row">{{song["rank"]}}</th>
                 <td>{{song["title"]}}</td>
-                <td>{{song["artist"]}}</td>
+                <td><i>{{song["artist"]}}</i></td>
                 <td><a href="youtube">link_youtube</a></td>
                 <td><a href="spotify">link_spotify</a></td>
             </tr>
@@ -131,13 +111,4 @@
         </tbody>
     </table>
     </div>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-  </body>
-</html>
-
-
-
+{% endblock %}
