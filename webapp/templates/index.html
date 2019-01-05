@@ -1,69 +1,65 @@
-<!doctype html>
-<html lang="en">
-<head>
-<!-- Required meta tags -->
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
-
-<!-- Bootstrap CSS -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-
-<title>Charts</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+{% block content %}
 <form action="{{ url_for('index') }}" method='POST'>
 <h1><center><br>Access The Archive</br></center></h1>
-  <div class="form-row align-items-center text-center">
-    <div class="col-auto my-1">
-        <select class="custom-select mr-sm-2" id="day" name="day">
-          <option value="{{days[0]}}" selected>{{days[0]}}</option>
-          {% for day in days[1:] %}
-            <option value="{{day}}">{{day}}</option>
-          {% endfor %}
-        </select>
-    </div>
-    <div class="col-auto my-1">
-        <select class="custom-select mr-sm-2" id="month" name="month">
-            <option value="01" selected>January</option>
-            <option value="02">February</option>
-            <option value="03">March</option>
-            <option value="04">April</option>
-            <option value="05">May</option>
-            <option value="06">June</option>
-            <option value="07">July</option>
-            <option value="08">August</option>
-            <option value="09">September</option>
-            <option value="10">October</option>
-            <option value="11">November</option>
-            <option value="12">December</option>
-        </select>
-    </div>
-        <div class="col-auto my-1">
-            <select class="custom-select mr-sm-2" id="year" name="year">
-              <option value="{{years[0]}}" selected>{{years[0]}}</option>
-              {% for year in years[1:] %}
-                <option value="{{year}}">{{year}}</option>
-              {% endfor %}
-            </select>
+        <div class="row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-6">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <div class="form-group">
+                            <select class="form-control" id="day" name="day">
+                              <option value="{{days[0]}}" selected>{{days[0]}}</option>
+                              {% for day in days[1:] %}
+                                <option value="{{day}}">{{day}}</option>
+                              {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <select class="form-control" id="month" name="month">
+                                <option value="01" selected>January</option>
+                                <option value="02">February</option>
+                                <option value="03">March</option>
+                                <option value="04">April</option>
+                                <option value="05">May</option>
+                                <option value="06">June</option>
+                                <option value="07">July</option>
+                                <option value="08">August</option>
+                                <option value="09">September</option>
+                                <option value="10">October</option>
+                                <option value="11">November</option>
+                                <option value="12">December</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <select class="form-control" id="year" name="year">
+                              <option value="{{years[0]}}" selected>{{years[0]}}</option>
+                              {% for year in years[1:] %}
+                                <option value="{{year}}">{{year}}</option>
+                              {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="form-group">
+                            <button type="search" class="btn btn-primary">Search</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3"></div>
         </div>
-        <div class="col-auto my-1">
-            <button type="search" class="btn btn-primary">Search</button>
-        </div>
-        <div class="col-auto my-1">
-            <a href="{{ url_for('login') }}" class="btn btn-primary">Login</a>
-         <!--<button type="login" class="btn btn-primary">Login</button>-->
-        </div>
-          <!--<form action="{{ url_for('login') }}" method="POST">-->
-        <!--<input type="submit" class="btn btn-primary" value="Login" />-->
-            <!--</form>-->
-        <!--</div>-->
-  </div>
 </form>
     <br>
     <br>
     <br>
     <div class="container-fluid">
-    <h1><center>Top 100 Billboard US chart on {{date}}</center></h1>
+    <h2><center>Top 100 Billboard US singles chart<br>on {{date}}</center></h2>
     <table class="table table-dark">
         <thead>
         <tr>
@@ -79,7 +75,7 @@
             <tr>
                 <th scope="row">{{song["rank"]}}</th>
                 <td>{{song["title"]}}</td>
-                <td>{{song["artist"]}}</td>
+                <td><i>{{song["artist"]}}</i></td>
                 <td><a href="youtube">link_youtube</a></td>
                 <td><a href="spotify">link_spotify</a></td>
             </tr>
@@ -91,7 +87,7 @@
         <br>
         <br>
     <div class="container-fluid">
-    <h1><center>Top 100 Official UK chart on {{date}}</center></h1>
+    <h2><center>Top 100 Official UK singles chart<br>on {{date}}</center></h2>
     <table class="table table-dark">
         <thead>
         <tr>
@@ -107,7 +103,7 @@
             <tr>
                 <th scope="row">{{song["rank"]}}</th>
                 <td>{{song["title"]}}</td>
-                <td>{{song["artist"]}}</td>
+                <td><i>{{song["artist"]}}</i></td>
                 <td><a href="youtube">link_youtube</a></td>
                 <td><a href="spotify">link_spotify</a></td>
             </tr>
@@ -115,13 +111,4 @@
         </tbody>
     </table>
     </div>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-  </body>
-</html>
-
-
-
+{% endblock %}
