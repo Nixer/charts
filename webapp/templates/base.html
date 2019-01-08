@@ -18,14 +18,14 @@
 <body>
     <nav class="navbar site-header sticky-top py-1">
       <div class="container-fluid">
-        <!--  <div class="navbar-header">
-          <a class="navbar-brand" href="/">Home</a>
-        </div> -->
+        <!--
+        -->
         <ul class="nav navbar-nav">
         <!--  <li class="active"><a href="/">Home</a></li> -->
           <li><a href="/">Home</a></li>
           <li><a href="{{ url_for('login') }}">Login</a></li>
-          <li><a href="#">Register</a></li>
+          <li><a href="{{ url_for('signup') }}">Register</a></li>
+          <li><a href="{{ url_for('about') }}">About</a></li>
         </ul>
       </div>
     </nav>

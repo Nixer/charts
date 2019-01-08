@@ -73,6 +73,14 @@ def create_app():
 
     @app.route("/signup")
     def signup():
+        if current_user.is_authenticated:
+            return redirect(url_for('index'))
         return render_template("signup.html")
+        #signup_form = SignupForm()
+        #return render_template("signup.html", form=signup_form)
+
+    @app.route("/about")
+    def about():
+        return render_template('about.html')
 
     return app
