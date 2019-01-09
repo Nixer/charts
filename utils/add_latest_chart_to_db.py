@@ -109,14 +109,16 @@ c.execute("SELECT MAX(id) AS id, date FROM us_chart")
 last_actual_date = (last_sunday(datetime.datetime.today().strftime('%Y-%m-%d'))).replace("-", "")
 latest_date_db = (c.fetchone()[-1]).replace("-", "")
 
-dates_to_parse = all_date[all_date.index(latest_date_db) + 1:]
-print(dates_to_parse)
+print(last_actual_date)
+print(latest_date_db)
+# dates_to_parse = all_date[all_date.index(latest_date_db) + 1:]
+# print(dates_to_parse)
 
-# uk_chart = parse_uk_chart(dates_to_parse)
-us_chart = parse_us_chart(dates_to_parse)
+uk_chart = parse_uk_chart([last_actual_date])
+# us_chart = parse_us_chart([last_actual_date])
 
-# print(uk_chart)
-print(us_chart)
-# add_json_chart_to_db(uk_chart, "uk")
+print(uk_chart)
+# print(us_chart)
+add_json_chart_to_db(uk_chart, "uk")
 
-add_json_chart_to_db(us_chart, "us")
+# add_json_chart_to_db(us_chart, "us")

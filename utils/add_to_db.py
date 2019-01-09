@@ -1,5 +1,5 @@
 import sqlite3
-from open_charts_json import open_chart
+from utils.open_charts_json import open_chart
 
 us_chart = open_chart("us_charts.json")
 uk_chart = open_chart("uk_charts.json")

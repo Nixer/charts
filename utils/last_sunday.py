@@ -25,3 +25,8 @@ def last_sunday(day):
         sunday -= one_day
 
     return sunday.strftime("%Y-%m-%d")
+
+
+def human_date(date):
+    datetime_object = datetime.datetime.strptime(date, '%Y-%m-%d')
+    return datetime_object.strftime("%d %B %Y")

@@ -10,8 +10,8 @@ def get_records(date):
     chart_for_date_us = UsChart.query.filter_by(date=date).order_by(UsChart.rank).all()
     for c in chart_for_date_uk:
         track = Track.query.get(c.track_id)
-        current_top_uk.append({'title': track.title, 'artist': track.artist, 'rank': c.rank})
+        current_top_uk.append({'title': track.title, 'artist': track.artist, 'rank': c.rank, 'words': track.words})
     for c in chart_for_date_us:
         track = Track.query.get(c.track_id)
-        current_top_us.append({'title': track.title, 'artist': track.artist, 'rank': c.rank})
+        current_top_us.append({'title': track.title, 'artist': track.artist, 'rank': c.rank, 'words': track.words})
     return days, years, current_top_us, current_top_uk
