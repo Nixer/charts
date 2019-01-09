@@ -70,13 +70,14 @@
         <br>
         <br>
         <div class="container-fluid">
-        <h3><center>Top 100 Billboard US singles chart<br>on {{date}}</center></h3>
+        <h3><center>Top 100 Billboard US singles chart<br>{{date}}</center></h3>
         <table class="table table-dark">
             <thead>
             <tr>
               <th scope="col">Rank</th>
               <th scope="col">Title</th>
               <th scope="col">Artist</th>
+              <th scope="col">Unique number of words</th>
               <th scope="col">Youtube</th>
               <th scope="col">Spotify</th>
             </tr>
@@ -87,6 +88,11 @@
                     <th scope="row">{{song["rank"]}}</th>
                     <td>{{song["title"]}}</td>
                     <td><i>{{song["artist"]}}</i></td>
+                    {% if song["words"] == None %}
+                        <td>-</td>
+                    {% else %}
+                        <td>{{song["words"]}}</td>
+                    {% endif %}
                     <td><a href="youtube">link_youtube</a></td>
                     <td><a href="spotify">link_spotify</a></td>
                 </tr>
@@ -98,13 +104,14 @@
             <br>
             <br>
         <div class="container-fluid">
-        <h3><center>Top 100 Official UK singles chart<br>on {{date}}</center></h3>
+        <h3><center>Top 100 Official UK singles chart<br>{{date}}</center></h3>
         <table class="table table-dark">
             <thead>
             <tr>
               <th scope="col">Rank</th>
               <th scope="col">Title</th>
               <th scope="col">Artist</th>
+              <th scope="col">Unique number of words</th>
               <th scope="col">Youtube</th>
               <th scope="col">Spotify</th>
             </tr>
@@ -115,6 +122,11 @@
                     <th scope="row">{{song["rank"]}}</th>
                     <td>{{song["title"]}}</td>
                     <td><i>{{song["artist"]}}</i></td>
+                    {% if song["words"] == None %}
+                        <td>-</td>
+                    {% else %}
+                        <td>{{song["words"]}}</td>
+                    {% endif %}
                     <td><a href="youtube">link_youtube</a></td>
                     <td><a href="spotify">link_spotify</a></td>
                 </tr>

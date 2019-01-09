@@ -43,6 +43,7 @@ class Track(db.Model):
     spotify_link = db.Column(db.Text, nullable=True)
     youtube_link = db.Column(db.Text, nullable=True)
     image_link = db.Column(db.Text, nullable=True)
+    words = db.Column(db.Integer, nullable=True)
     user_tracks = db.relationship('UserTrack', backref='track', lazy=True)
     track_us_charts = db.relationship('UsChart', backref='user', lazy=True)
     track_uk_charts = db.relationship('UkChart', backref='user', lazy=True)
