@@ -8,7 +8,7 @@
 #       to find the correct place to provide that key..
 
 import argparse
-
+from webapp.config import *
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 
@@ -17,7 +17,7 @@ from googleapiclient.errors import HttpError
 # tab of
 #   https://cloud.google.com/console
 # Please ensure that you have enabled the YouTube Data API for your project.
-DEVELOPER_KEY = 'AIzaSyANCbzHB15rTQqm2sXsv2t6Mgz5U0S2rvo'
+DEVELOPER_KEY = GOOGLE_API_DEVELOPER_KEY
 YOUTUBE_API_SERVICE_NAME = 'youtube.googleapis.com'
 YOUTUBE_API_VERSION = 'v3'
 
