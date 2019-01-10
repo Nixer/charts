@@ -46,7 +46,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-sm-2">
                             <div class="form-group">
                                 <select class="form-control" id="year" name="year">
                                   <option value="{{years[0]}}" selected>{{years[0]}}</option>
@@ -56,9 +56,10 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-sm-2">
+                        <div class="col-sm-4">
                             <div class="form-group">
                                 <button type="search" class="btn btn-primary">Search</button>
+                                &nbsp;<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Graph</button>
                             </div>
                         </div>
                     </div>
@@ -133,5 +134,22 @@
                 {% endfor %}
             </tbody>
         </table>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Unique words VS rank graph for chart on {{date}}</h4>
+              </div>
+              <div class="modal-body">
+                <center><embed type="image/svg+xml" src='{{graphs|safe}}' style='max-width:1000px'/></center>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
         </div>
 {% endblock %}
