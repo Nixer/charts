@@ -40,7 +40,7 @@ def get_yt_link(track):
 
 # c.execute('SELECT title, artist FROM track WHERE id > 64735')
 
-for i in range(64536, 64736):
+for i in range(306, 10000):
     c.execute(f'SELECT title, artist FROM track WHERE id = {i}')
     tr = c.fetchone()
     print(f"{tr[1]} - {tr[0]}")

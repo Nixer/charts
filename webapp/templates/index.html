@@ -97,9 +97,9 @@
                     {% if song["ylink"] == None %}
                         <td>-</td>
                     {% else %}
-                        <td><a href="{{song['ylink']}}">youtube_link</a></td>
+                        <td><a href="{{song['ylink']}}" target="_blank">watch</a>
                     {% endif %}
-                    <td><a href="spotify">spotify_link</a></td>
+                    <td>-</td>
                 </tr>
                 {% endfor %}
             </tbody>
@@ -135,9 +135,9 @@
                     {% if song["ylink"] == None %}
                         <td>-</td>
                     {% else %}
-                        <td><a href="{{song['ylink']}}">youtube_link</a></td>
+                        <td><a href="{{song['ylink']}}" target="_blank">watch</a></td>
                     {% endif %}
-                    <td><a href="spotify">spotify_link</a></td>
+                    <td>-</td>
                 </tr>
                 {% endfor %}
             </tbody>
